@@ -1,9 +1,10 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
+const Composites = Matter.Composites;
 
 var engine, world;
-var ground, crazyBall,basketBall,platform;
+var ground, crazyBall,basketBall,box1,platform;
 
 function setup(){
     var canvas = createCanvas(500,600);
@@ -31,7 +32,8 @@ function setup(){
     World.add(world,basketBall);
     crazyBall = Bodies.circle(190,100,15, cb_options);
     World.add(world,crazyBall);
-
+    //box1 =  Bodies.rectangle(200,50,50,50);
+    //World.add(world,box1);
     console.log(ground);
 }
 
@@ -45,6 +47,7 @@ function draw(){
     fill("green");
     rect(platform.position.x,platform.position.y,170,120);
     fill("yellow");
+    rect(box1.position.x,box1.position.y,50,50);
     ellipseMode(RADIUS)
     ellipse(crazyBall.position.x, crazyBall.position.y, 15, 15);
     ellipse(basketBall.position.x, basketBall.position.y, 30, 30);
